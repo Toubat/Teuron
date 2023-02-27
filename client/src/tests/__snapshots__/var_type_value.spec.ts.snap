@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`createVarTypeValueString > nested array 1`] = `"{\\"a\\": \\"hello\\", \\"b\\": 1, \\"c\\": {\\"d\\": \\"world\\"}, \\"e\\": [1, 2, 3]}"`;
+
+exports[`createVarTypeValueString > nested array 2`] = `"{\\"a\\": \\"hello\\", \\"b\\": 1, \\"c\\": {\\"d\\": \\"world\\"}, \\"e\\": [1, 2, 3], \\"f\\": {\\"g\\": \\"hello\\", \\"h\\": 1, \\"i\\": {\\"j\\": \\"world\\"}, \\"k\\": [1, 2, 3]}}"`;
+
+exports[`createVarTypeValueString > nested object 1`] = `"{\\"a\\": \\"hello\\", \\"b\\": 1, \\"c\\": {\\"d\\": \\"world\\"}}"`;
+
+exports[`createVarTypeValueString > object 1`] = `"{\\"a\\": \\"hello\\", \\"b\\": 1}"`;

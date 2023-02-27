@@ -1,0 +1,46 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`createConversionPrompt > array of object 1`] = `
+"type ItemRecord = {
+	\\"item\\": string;
+	\\"price\\": number;
+	\\"unit\\": string;
+}[];
+
+/*
+Input:
+ - prompt (string): message that contains a set of items and their prices
+Return:
+ - result (ItemRecord): a list of items and their associated prices
+Examples:
+extract(\\"I eat a pancake that costs me $15\\")
+-> [{\\"item\\": \\"pancake\\", \\"price\\": 15, \\"unit\\": \\"dollar\\"}];;
+extract(\\"I bought three eggs, each costs me 1.5 cents\\")
+-> [{\\"item\\": \\"eggs\\", \\"price\\": 4.5, \\"unit\\": \\"cent\\"}];;
+extract(\\"I bought three eggs.\\")
+-> [{\\"item\\": \\"eggs\\", \\"price\\": 0, \\"unit\\": \\"\\"}];;
+*/
+
+function extract(prompt: string): ItemRecord;
+
+// Given input of extract, return the output (end with ;;)
+extract(\\"yesterday, I ordered two crabs, total amount is $231.13; I also spent 35 cents\\")
+-> "
+`;
+
+exports[`createConversionPrompt > primitive types 1`] = `
+"type MyString = number;
+
+/*
+Input:
+ - prompt (string): Hello World
+Return:
+ - result (MyString): Goodbye World
+*/
+
+function toString(prompt: string): MyString;
+
+// Given input of toString, return the output (end with ;;)
+toString(\\"1\\")
+-> "
+`;

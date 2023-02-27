@@ -1,0 +1,205 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`createVarTypeDeclerationString > array of object of array of simple object 1`] = `
+"{
+	\\"a\\": number;
+	\\"b\\": {
+		\\"a\\": string;
+		\\"b\\": number;
+	}[];
+}[]"
+`;
+
+exports[`createVarTypeDeclerationString > array of simple object 1`] = `
+"{
+	\\"a\\": string;
+	\\"b\\": number;
+}[]"
+`;
+
+exports[`createVarTypeDeclerationString > complex nested object & array 1`] = `
+"{
+	\\"arr\\": {
+		\\"a\\": string;
+		\\"b\\": {
+			\\"a\\": {
+				\\"a\\": {
+					\\"a\\": number;
+				};
+			};
+		}[];
+	}[];
+}"
+`;
+
+exports[`createVarTypeDeclerationString > complex object 1`] = `
+"{
+	\\"a\\": string;
+	\\"b\\": number;
+	\\"c\\": boolean;
+	\\"d\\": string[];
+	\\"e\\": number[];
+	\\"f\\": boolean[];
+	\\"g\\": {
+		\\"a\\": string;
+		\\"b\\": number;
+		\\"c\\": {
+			\\"a\\": string;
+			\\"b\\": number;
+		}[];
+	}[];
+}"
+`;
+
+exports[`createVarTypeDeclerationString > object of array of simple object 1`] = `
+"{
+	\\"a\\": number;
+	\\"b\\": {
+		\\"a\\": string;
+		\\"b\\": number;
+	}[];
+}"
+`;
+
+exports[`createVarTypeDeclerationString > simple object type 1`] = `
+"{
+	\\"a\\": string;
+	\\"b\\": number;
+}"
+`;
+
+exports[`var_type > array of object of array of simple object 1`] = `
+"{
+	\\"a\\": number;
+	\\"b\\": {
+		\\"a\\": string;
+		\\"b\\": number;
+	}[];
+}[]"
+`;
+
+exports[`var_type > array of simple object 1`] = `
+"{
+	\\"a\\": string;
+	\\"b\\": number;
+}[]"
+`;
+
+exports[`var_type > complex nested object & array 1`] = `
+"{
+	\\"arr\\": {
+		\\"a\\": string;
+		\\"b\\": {
+			\\"a\\": {
+				\\"a\\": {
+					\\"a\\": number;
+				};
+			};
+		}[];
+	}[];
+}"
+`;
+
+exports[`var_type > complex object 1`] = `
+"{
+	\\"a\\": string;
+	\\"b\\": number;
+	\\"c\\": boolean;
+	\\"d\\": string[];
+	\\"e\\": number[];
+	\\"f\\": boolean[];
+	\\"g\\": {
+		\\"a\\": string;
+		\\"b\\": number;
+		\\"c\\": {
+			\\"a\\": string;
+			\\"b\\": number;
+		}[];
+	}[];
+}"
+`;
+
+exports[`var_type > object of array of simple object 1`] = `
+"{
+	\\"a\\": number;
+	\\"b\\": {
+		\\"a\\": string;
+		\\"b\\": number;
+	}[];
+}"
+`;
+
+exports[`var_type > simple object type 1`] = `
+"{
+	\\"a\\": string;
+	\\"b\\": number;
+}"
+`;
+
+exports[`var_type_declaration > array of object of array of simple object 1`] = `
+"{
+	\\"a\\": number;
+	\\"b\\": {
+		\\"a\\": string;
+		\\"b\\": number;
+	}[];
+}[]"
+`;
+
+exports[`var_type_declaration > array of simple object 1`] = `
+"{
+	\\"a\\": string;
+	\\"b\\": number;
+}[]"
+`;
+
+exports[`var_type_declaration > complex nested object & array 1`] = `
+"{
+	\\"arr\\": {
+		\\"a\\": string;
+		\\"b\\": {
+			\\"a\\": {
+				\\"a\\": {
+					\\"a\\": number;
+				};
+			};
+		}[];
+	}[];
+}"
+`;
+
+exports[`var_type_declaration > complex object 1`] = `
+"{
+	\\"a\\": string;
+	\\"b\\": number;
+	\\"c\\": boolean;
+	\\"d\\": string[];
+	\\"e\\": number[];
+	\\"f\\": boolean[];
+	\\"g\\": {
+		\\"a\\": string;
+		\\"b\\": number;
+		\\"c\\": {
+			\\"a\\": string;
+			\\"b\\": number;
+		}[];
+	}[];
+}"
+`;
+
+exports[`var_type_declaration > object of array of simple object 1`] = `
+"{
+	\\"a\\": number;
+	\\"b\\": {
+		\\"a\\": string;
+		\\"b\\": number;
+	}[];
+}"
+`;
+
+exports[`var_type_declaration > simple object type 1`] = `
+"{
+	\\"a\\": string;
+	\\"b\\": number;
+}"
+`;
