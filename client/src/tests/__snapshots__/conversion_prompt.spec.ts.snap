@@ -36,6 +36,9 @@ Input:
  - prompt (string): Hello World
 Return:
  - result (MyString): Goodbye World
+Examples:
+toString(\\"abc\\")
+-> 123;;
 */
 
 function toString(prompt: string): MyString;

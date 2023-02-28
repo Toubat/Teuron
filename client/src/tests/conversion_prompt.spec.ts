@@ -17,6 +17,12 @@ describe("createConversionPrompt", () => {
       returnName: "MyString",
       promptDescription: "Hello World",
       resultDescription: "Goodbye World",
+      examples: [
+        {
+          prompt: "abc",
+          output: 123,
+        },
+      ],
     });
     expect(result).toMatchSnapshot();
   });
@@ -42,6 +48,16 @@ describe("createConversionPrompt", () => {
         },
       },
     };
+
+    /*
+    type ItemRecord = {
+      item: string;
+      price: number;
+      unit: string;
+    };
+
+
+    */
 
     const result = createConversionPrompt({
       typeNode,
