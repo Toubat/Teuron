@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`createBranchPrompt > add examples 1`] = `
+"Given a context and a hypothesis, return whether the hypothesis is true or false based on the context.
+
+Input: I am a cat, I am a dog
+Output: false
+
+Input: I am a dog, I am a cat
+Output: true
+
+Input: Context: I am a cat, Hypothesis: I am a dog
+Output: "
+`;
+
+exports[`createBranchPrompt > simple case 1`] = `
+"Given a context and a hypothesis, return whether the hypothesis is true or false based on the context.
+
+Input: Context: I am a cat, Hypothesis: I am a dog
+Output: "
+`;

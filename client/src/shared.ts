@@ -1,6 +1,8 @@
 export const VAR_TYPE_VALUE_STOP_SYMBOL = ";;";
 export const ARROW = "->";
 export const EMPTY_STRING = "";
+export const TRUE = "true";
+export const FALSE = "false";
 
 export function isObject(value: any): boolean {
   return value !== null && typeof value === "object";
