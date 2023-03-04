@@ -1,13 +1,13 @@
 import { describe, it, expect } from "vitest";
-import type { VarTypeDecleration } from "../openai/var_types";
-import { VarType } from "../openai/var_types";
+import type { VTypeDecleration } from "../openai/vtype";
+import { VType } from "../openai/vtype";
 import { createConversionPrompt } from "../openai/conversion_prompt";
 
 describe("createConversionPrompt", () => {
   it("primitive types", () => {
-    const typeNode: VarTypeDecleration<VarType.Number> = {
-      type: VarType.Number,
-      inner: VarType.Number,
+    const typeNode: VTypeDecleration<VType.Number> = {
+      type: VType.Number,
+      inner: VType.Number,
     };
 
     const result = createConversionPrompt({
@@ -28,22 +28,22 @@ describe("createConversionPrompt", () => {
   });
 
   it("array of object", () => {
-    const typeNode: VarTypeDecleration<VarType.Array> = {
-      type: VarType.Array,
+    const typeNode: VTypeDecleration<VType.Array> = {
+      type: VType.Array,
       inner: {
-        type: VarType.Object,
+        type: VType.Object,
         inner: {
           item: {
-            type: VarType.String,
-            inner: VarType.String,
+            type: VType.String,
+            inner: VType.String,
           },
           price: {
-            type: VarType.Number,
-            inner: VarType.Number,
+            type: VType.Number,
+            inner: VType.Number,
           },
           unit: {
-            type: VarType.String,
-            inner: VarType.String,
+            type: VType.String,
+            inner: VType.String,
           },
         },
       },

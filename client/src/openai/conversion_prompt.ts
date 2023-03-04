@@ -1,51 +1,42 @@
 import { ARROW, VAR_TYPE_VALUE_STOP_SYMBOL } from "../shared";
+import { createArgumentDescription, PromptExample } from "./prompt_utils";
 import {
-  createVarTypeDeclerationString,
-  createVarTypeValueString,
-  VarType,
-  VarTypeDecleration,
-  VarTypeValue,
-} from "./var_types";
+  createVTypeDeclerationString,
+  createVTypeValueString,
+  VType,
+  VTypeDecleration,
+} from "./vtype";
 
-interface CraeteConversionExample<T extends VarType> {
-  prompt: string;
-  output: VarTypeValue<T>;
-}
+const DEFAULT_RETURN_NAME = "ReturnType";
+const DEFAULT_PROMPT_DESCRIPTION = "A natural language description";
+const DEFAULT_RESULT_DESCRIPTION = "The result of the function";
 
-interface CreateConversionOptions<T extends VarType> {
-  typeNode: VarTypeDecleration<T>;
+interface ConversionOptions<T extends VType> {
+  typeNode: VTypeDecleration<T>;
   prompt: string;
   functionName: string;
   returnName?: string;
   promptDescription?: string;
   resultDescription?: string;
-  examples?: CraeteConversionExample<T>[];
+  examples?: PromptExample<T>[];
 }
 
-export function createArgumentDescription(
-  paramName: string,
-  varType: string,
-  description: string
-): string {
-  return `- ${paramName} (${varType}): ${description}`;
-}
-
-export function createConversionPrompt<T extends VarType>({
+export function createConversionPrompt<T extends VType>({
   typeNode,
   prompt,
   functionName,
-  returnName = "ReturnType",
-  promptDescription = "A natural language description",
-  resultDescription = "The result of the function",
+  returnName = DEFAULT_RETURN_NAME,
+  promptDescription = DEFAULT_PROMPT_DESCRIPTION,
+  resultDescription = DEFAULT_RESULT_DESCRIPTION,
   examples = [],
-}: CreateConversionOptions<T>): string {
+}: ConversionOptions<T>): string {
   const prompts: string[] = [];
   const push = (str: string) => prompts.push(str);
 
-  push(`type ${returnName} = ${createVarTypeDeclerationString(typeNode)};\n`);
+  push(`type ${returnName} = ${createVTypeDeclerationString(typeNode)};\n`);
   push(`/*`);
   push(`Input:`);
-  push(` ${createArgumentDescription("prompt", VarType.String, promptDescription)}`);
+  push(` ${createArgumentDescription("prompt", VType.String, promptDescription)}`);
   push(`Return:`);
   push(` ${createArgumentDescription("result", returnName, resultDescription)}`);
 
@@ -53,7 +44,7 @@ export function createConversionPrompt<T extends VarType>({
     push(`Examples:`);
     examples.forEach(({ prompt, output }) => {
       push(`${functionName}("${prompt}")`);
-      push(`${ARROW} ${createVarTypeValueString(output)}${VAR_TYPE_VALUE_STOP_SYMBOL}`);
+      push(`${ARROW} ${createVTypeValueString(output)}${VAR_TYPE_VALUE_STOP_SYMBOL}`);
     });
   }
 

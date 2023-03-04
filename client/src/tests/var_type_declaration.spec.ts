@@ -1,225 +1,225 @@
 import { describe, it, expect } from "vitest";
-import type { VarTypeDecleration } from "../openai/var_types";
-import { VarType, createVarTypeDeclerationString } from "../openai/var_types";
+import type { VTypeDecleration } from "../openai/vtype";
+import { VType, createVTypeDeclerationString } from "../openai/vtype";
 
 describe("createVarTypeDeclerationString", () => {
   it("number type", () => {
-    const typeNode: VarTypeDecleration<VarType.Number> = {
-      type: VarType.Number,
-      inner: VarType.Number,
+    const typeNode: VTypeDecleration<VType.Number> = {
+      type: VType.Number,
+      inner: VType.Number,
     };
 
-    const result = createVarTypeDeclerationString(typeNode);
+    const result = createVTypeDeclerationString(typeNode);
     expect(result).toBe("number");
   });
 
   it("boolean type", () => {
-    const typeNode: VarTypeDecleration<VarType.Boolean> = {
-      type: VarType.Boolean,
-      inner: VarType.Boolean,
+    const typeNode: VTypeDecleration<VType.Boolean> = {
+      type: VType.Boolean,
+      inner: VType.Boolean,
     };
 
-    const result = createVarTypeDeclerationString(typeNode);
+    const result = createVTypeDeclerationString(typeNode);
     expect(result).toBe("boolean");
   });
 
   it("string type", () => {
-    const typeNode: VarTypeDecleration<VarType.String> = {
-      type: VarType.String,
-      inner: VarType.String,
+    const typeNode: VTypeDecleration<VType.String> = {
+      type: VType.String,
+      inner: VType.String,
     };
 
-    const result = createVarTypeDeclerationString(typeNode);
+    const result = createVTypeDeclerationString(typeNode);
     expect(result).toBe("string");
   });
 
   it("simple array type", () => {
-    const typeNode: VarTypeDecleration<VarType.Array> = {
-      type: VarType.Array,
+    const typeNode: VTypeDecleration<VType.Array> = {
+      type: VType.Array,
       inner: {
-        type: VarType.String,
-        inner: VarType.String,
+        type: VType.String,
+        inner: VType.String,
       },
     };
 
-    const result = createVarTypeDeclerationString(typeNode);
+    const result = createVTypeDeclerationString(typeNode);
     expect(result).toBe("string[]");
   });
 
   it("simple object type", () => {
-    const typeNode: VarTypeDecleration<VarType.Object> = {
-      type: VarType.Object,
+    const typeNode: VTypeDecleration<VType.Object> = {
+      type: VType.Object,
       inner: {
         a: {
-          type: VarType.String,
-          inner: VarType.String,
+          type: VType.String,
+          inner: VType.String,
         },
         b: {
-          type: VarType.Number,
-          inner: VarType.Number,
+          type: VType.Number,
+          inner: VType.Number,
         },
       },
     };
 
-    const result = createVarTypeDeclerationString(typeNode);
+    const result = createVTypeDeclerationString(typeNode);
     expect(result).toMatchSnapshot();
   });
 
   it("array of simple object", () => {
-    const arrayOfObject: VarTypeDecleration<VarType.Array> = {
-      type: VarType.Array,
+    const arrayOfObject: VTypeDecleration<VType.Array> = {
+      type: VType.Array,
       inner: {
-        type: VarType.Object,
+        type: VType.Object,
         inner: {
           a: {
-            type: VarType.String,
-            inner: VarType.String,
+            type: VType.String,
+            inner: VType.String,
           },
           b: {
-            type: VarType.Number,
-            inner: VarType.Number,
+            type: VType.Number,
+            inner: VType.Number,
           },
         },
       },
     };
 
-    const result = createVarTypeDeclerationString(arrayOfObject);
+    const result = createVTypeDeclerationString(arrayOfObject);
     expect(result).toMatchSnapshot();
   });
 
   it("object of array of simple object", () => {
-    const arrayOfObject: VarTypeDecleration<VarType.Array> = {
-      type: VarType.Array,
+    const arrayOfObject: VTypeDecleration<VType.Array> = {
+      type: VType.Array,
       inner: {
-        type: VarType.Object,
+        type: VType.Object,
         inner: {
           a: {
-            type: VarType.String,
-            inner: VarType.String,
+            type: VType.String,
+            inner: VType.String,
           },
           b: {
-            type: VarType.Number,
-            inner: VarType.Number,
+            type: VType.Number,
+            inner: VType.Number,
           },
         },
       },
     };
 
-    const objectOfArrayOfObject: VarTypeDecleration<VarType.Object> = {
-      type: VarType.Object,
+    const objectOfArrayOfObject: VTypeDecleration<VType.Object> = {
+      type: VType.Object,
       inner: {
         a: {
-          type: VarType.Number,
-          inner: VarType.Number,
+          type: VType.Number,
+          inner: VType.Number,
         },
         b: arrayOfObject,
       },
     };
 
-    const result = createVarTypeDeclerationString(objectOfArrayOfObject);
+    const result = createVTypeDeclerationString(objectOfArrayOfObject);
     expect(result).toMatchSnapshot();
   });
 
   it("array of object of array of simple object", () => {
-    const arrayOfObject: VarTypeDecleration<VarType.Array> = {
-      type: VarType.Array,
+    const arrayOfObject: VTypeDecleration<VType.Array> = {
+      type: VType.Array,
       inner: {
-        type: VarType.Object,
+        type: VType.Object,
         inner: {
           a: {
-            type: VarType.String,
-            inner: VarType.String,
+            type: VType.String,
+            inner: VType.String,
           },
           b: {
-            type: VarType.Number,
-            inner: VarType.Number,
+            type: VType.Number,
+            inner: VType.Number,
           },
         },
       },
     };
 
-    const objectOfArrayOfObject: VarTypeDecleration<VarType.Object> = {
-      type: VarType.Object,
+    const objectOfArrayOfObject: VTypeDecleration<VType.Object> = {
+      type: VType.Object,
       inner: {
         a: {
-          type: VarType.Number,
-          inner: VarType.Number,
+          type: VType.Number,
+          inner: VType.Number,
         },
         b: arrayOfObject,
       },
     };
 
-    const arrayOfObjectOfArrayOfObject: VarTypeDecleration<VarType.Array> = {
-      type: VarType.Array,
+    const arrayOfObjectOfArrayOfObject: VTypeDecleration<VType.Array> = {
+      type: VType.Array,
       inner: objectOfArrayOfObject,
     };
 
-    const result = createVarTypeDeclerationString(arrayOfObjectOfArrayOfObject);
+    const result = createVTypeDeclerationString(arrayOfObjectOfArrayOfObject);
     expect(result).toMatchSnapshot();
   });
 
   it("complex object", () => {
-    const complexObject: VarTypeDecleration<VarType.Object> = {
-      type: VarType.Object,
+    const complexObject: VTypeDecleration<VType.Object> = {
+      type: VType.Object,
       inner: {
         a: {
-          type: VarType.String,
-          inner: VarType.String,
+          type: VType.String,
+          inner: VType.String,
         },
         b: {
-          type: VarType.Number,
-          inner: VarType.Number,
+          type: VType.Number,
+          inner: VType.Number,
         },
         c: {
-          type: VarType.Boolean,
-          inner: VarType.Boolean,
+          type: VType.Boolean,
+          inner: VType.Boolean,
         },
         d: {
-          type: VarType.Array,
+          type: VType.Array,
           inner: {
-            type: VarType.String,
-            inner: VarType.String,
+            type: VType.String,
+            inner: VType.String,
           },
         },
         e: {
-          type: VarType.Array,
+          type: VType.Array,
           inner: {
-            type: VarType.Number,
-            inner: VarType.Number,
+            type: VType.Number,
+            inner: VType.Number,
           },
         },
         f: {
-          type: VarType.Array,
+          type: VType.Array,
           inner: {
-            type: VarType.Boolean,
-            inner: VarType.Boolean,
+            type: VType.Boolean,
+            inner: VType.Boolean,
           },
         },
         g: {
-          type: VarType.Array,
+          type: VType.Array,
           inner: {
-            type: VarType.Object,
+            type: VType.Object,
             inner: {
               a: {
-                type: VarType.String,
-                inner: VarType.String,
+                type: VType.String,
+                inner: VType.String,
               },
               b: {
-                type: VarType.Number,
-                inner: VarType.Number,
+                type: VType.Number,
+                inner: VType.Number,
               },
               c: {
-                type: VarType.Array,
+                type: VType.Array,
                 inner: {
-                  type: VarType.Object,
+                  type: VType.Object,
                   inner: {
                     a: {
-                      type: VarType.String,
-                      inner: VarType.String,
+                      type: VType.String,
+                      inner: VType.String,
                     },
                     b: {
-                      type: VarType.Number,
-                      inner: VarType.Number,
+                      type: VType.Number,
+                      inner: VType.Number,
                     },
                   },
                 },
@@ -230,37 +230,37 @@ describe("createVarTypeDeclerationString", () => {
       },
     };
 
-    const result = createVarTypeDeclerationString(complexObject);
+    const result = createVTypeDeclerationString(complexObject);
     expect(result).toMatchSnapshot();
   });
 
   it("complex nested object & array", () => {
-    const complexObject: VarTypeDecleration<VarType.Object> = {
-      type: VarType.Object,
+    const complexObject: VTypeDecleration<VType.Object> = {
+      type: VType.Object,
       inner: {
         arr: {
-          type: VarType.Array,
+          type: VType.Array,
           inner: {
-            type: VarType.Object,
+            type: VType.Object,
             inner: {
               a: {
-                type: VarType.String,
-                inner: VarType.String,
+                type: VType.String,
+                inner: VType.String,
               },
               b: {
-                type: VarType.Array,
+                type: VType.Array,
                 inner: {
-                  type: VarType.Object,
+                  type: VType.Object,
                   inner: {
                     a: {
-                      type: VarType.Object,
+                      type: VType.Object,
                       inner: {
                         a: {
-                          type: VarType.Object,
+                          type: VType.Object,
                           inner: {
                             a: {
-                              type: VarType.Number,
-                              inner: VarType.Number,
+                              type: VType.Number,
+                              inner: VType.Number,
                             },
                           },
                         },
@@ -275,7 +275,7 @@ describe("createVarTypeDeclerationString", () => {
       },
     };
 
-    const result = createVarTypeDeclerationString(complexObject);
+    const result = createVTypeDeclerationString(complexObject);
     expect(result).toMatchSnapshot();
   });
 });

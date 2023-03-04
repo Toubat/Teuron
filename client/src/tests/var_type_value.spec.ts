@@ -1,48 +1,48 @@
 import { describe, it, expect } from "vitest";
-import type { VarTypeValue } from "../openai/var_types";
-import { VarType, createVarTypeValueString } from "../openai/var_types";
+import type { VTypeValue } from "../openai/vtype";
+import { VType, createVTypeValueString } from "../openai/vtype";
 
 describe("createVarTypeValueString", () => {
   it("number", () => {
-    const value: VarTypeValue<VarType.Number> = 1;
-    const result = createVarTypeValueString(value);
+    const value: VTypeValue<VType.Number> = 1;
+    const result = createVTypeValueString(value);
     expect(result).toBe("1");
   });
 
   it("boolean", () => {
-    const value: VarTypeValue<VarType.Boolean> = true;
-    const result = createVarTypeValueString(value);
+    const value: VTypeValue<VType.Boolean> = true;
+    const result = createVTypeValueString(value);
     expect(result).toBe("true");
 
-    const value2: VarTypeValue<VarType.Boolean> = false;
-    const result2 = createVarTypeValueString(value2);
+    const value2: VTypeValue<VType.Boolean> = false;
+    const result2 = createVTypeValueString(value2);
     expect(result2).toBe("false");
   });
 
   it("string", () => {
-    const value: VarTypeValue<VarType.String> = "hello";
-    const result = createVarTypeValueString(value);
+    const value: VTypeValue<VType.String> = "hello";
+    const result = createVTypeValueString(value);
     expect(result).toBe('"hello"');
   });
 
   it("array", () => {
-    const value: VarTypeValue<VarType.Array> = [1, 2, 3];
-    const result = createVarTypeValueString(value);
+    const value: VTypeValue<VType.Array> = [1, 2, 3];
+    const result = createVTypeValueString(value);
     expect(result).toBe("[1, 2, 3]");
   });
 
   it("object", () => {
-    const value: VarTypeValue<VarType.Object> = {
+    const value: VTypeValue<VType.Object> = {
       a: "hello",
       b: 1,
     };
 
-    const result = createVarTypeValueString(value);
+    const result = createVTypeValueString(value);
     expect(result).matchSnapshot();
   });
 
   it("nested object", () => {
-    const value: VarTypeValue<VarType.Object> = {
+    const value: VTypeValue<VType.Object> = {
       a: "hello",
       b: 1,
       c: {
@@ -50,12 +50,12 @@ describe("createVarTypeValueString", () => {
       },
     };
 
-    const result = createVarTypeValueString(value);
+    const result = createVTypeValueString(value);
     expect(result).matchSnapshot();
   });
 
   it("nested array", () => {
-    const value: VarTypeValue<VarType.Object> = {
+    const value: VTypeValue<VType.Object> = {
       a: "hello",
       b: 1,
       c: {
@@ -64,10 +64,10 @@ describe("createVarTypeValueString", () => {
       e: [1, 2, 3],
     };
 
-    const result = createVarTypeValueString(value);
+    const result = createVTypeValueString(value);
     expect(result).matchSnapshot();
 
-    const value2: VarTypeValue<VarType.Object> = {
+    const value2: VTypeValue<VType.Object> = {
       a: "hello",
       b: 1,
       c: {
@@ -84,7 +84,7 @@ describe("createVarTypeValueString", () => {
       },
     };
 
-    const result2 = createVarTypeValueString(value2);
+    const result2 = createVTypeValueString(value2);
     expect(result2).matchSnapshot();
   });
 });
