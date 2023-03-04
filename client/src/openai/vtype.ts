@@ -52,7 +52,9 @@ export type VTypeValue<T extends VType = any> = T extends VType.Boolean
   : T extends VType.String
   ? string
   : T extends VType.Object
-  ? Record<string, VTypeValue>
+  ? {
+      [key: string]: VTypeValue;
+    }
   : T extends VType.Array
   ? VTypeValue[]
   : never;

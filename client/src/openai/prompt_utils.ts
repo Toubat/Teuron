@@ -12,3 +12,11 @@ export function createArgumentDescription(
 ): string {
   return `- ${paramName} (${varType}): ${description}`;
 }
+
+export function createInput(prompt: string): string {
+  return `Input: ${prompt}`;
+}
+
+export function createOutput(output: string): string {
+  return `Output: ${output}`;
+}
